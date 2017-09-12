@@ -77,6 +77,10 @@ footer {
    border-radius: 10px;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .copyright {
   float:left;
   font-family: "Raleway", sans-serif;
