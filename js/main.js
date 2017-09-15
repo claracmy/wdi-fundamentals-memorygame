@@ -23,14 +23,25 @@ cards = [
 
 cardsInPlay = [];
 
+var score = 0;
+
+var addScore = function(){
+  score = score + 1;
+  return score;
+};
+
+
 var checkForMatch = function(){
  if (cardsInPlay.length === 2){
     if (cardsInPlay[0] === cardsInPlay[1]){
     alert("You found a match!");
+    addScore();
+    console.log(score);
+    document.getElementById("score").innerHTML = score;
     } else {
     alert("Sorry, try again.");
-    };
-  };
+    }
+  }
 };
 
 var flipCard = function(){
@@ -52,7 +63,7 @@ var createBoard = function(){
     cardElement.setAttribute('class', 'card');
     cardElement.addEventListener('click', flipCard);
     document.getElementById('game-board').appendChild(cardElement);
-  };
+  }
 };
 
 var clearBoard = function(){
@@ -65,5 +76,6 @@ var clearBoard = function(){
 };
 
 document.getElementById('reset').addEventListener('click', clearBoard);
+document.getElementById("score").innerHTML = score;
 
 createBoard();
